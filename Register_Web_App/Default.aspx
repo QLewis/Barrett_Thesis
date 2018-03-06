@@ -5,38 +5,56 @@
     <div class="jumbotron">
         <h1>Barrett Register</h1>
         <p class="lead">This is going to be a cash register for my honors thesis</p>
-        <p><a href="http://www.asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
     </div>
 
-    <div class="row">
-        <div class="col-md-4">
-            <h2>Getting started</h2>
-            <p>
-                ASP.NET Web Forms lets you build dynamic websites using a familiar drag-and-drop, event-driven model.
-            A design surface and hundreds of controls and components let you rapidly build sophisticated, powerful UI-driven sites with data access.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301948">Learn more &raquo;</a>
-            </p>
+    <form id="form1" runat="server">
+        <div>
+            <table class="auto-style1">
+                <!--1st row has the log in label-->
+                <tr>
+                    <td colspan="6" style="text-align:center; vertical-align:top">
+                        <asp:Label ID="Label1" runat="server" Font-Bold="true" Font-Size="XX-Large" Font-Underline="true" Text="Log In"> </asp:Label>
+                    </td>
+                </tr>
+                <!--2nd row will take in userID-->
+                <tr>
+                    <td></td>
+                    <td style="text-align:center">
+                        <asp:Label ID="Label2" runat="server" Font-Size="X-Large" Text="UserID"></asp:Label>
+                    </td>
+                    <td style="text-align:center">
+                        <asp:TextBox ID="TextBox1" runat="server" Height="34px" Width="182px"></asp:TextBox>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!--3rd Row will take password-->
+                <tr>
+                    <td></td>
+                    <td style="text-align:center">
+                        <asp:Label ID="Label3" runat="server" Font-Size="X-Large" Text="Password"></asp:Label>
+                    </td>
+                    <td style="text-align:center">
+                        <asp:TextBox ID="TextBox2" runat="server" Height="34px" Width="182px"></asp:TextBox>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <!--4th Row has button-->
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align: center">
+                        
+                        <asp:Button ID="Button1" runat="server" Text="Log In" Width="133px" />
+                        
+                    </td>
+                </tr>
+            </table>
         </div>
-        <div class="col-md-4">
-            <h2>Get more libraries</h2>
-            <p>
-                NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301949">Learn more &raquo;</a>
-            </p>
-        </div>
-        <div class="col-md-4">
-            <h2>Web Hosting</h2>
-            <p>
-                You can easily find a web hosting company that offers the right mix of features and price for your applications.
-            </p>
-            <p>
-                <a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301950">Learn more &raquo;</a>
-            </p>
-        </div>
-    </div>
+    </form>
+    
 
 </asp:Content>
