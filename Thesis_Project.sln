@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Thesis_Project", "Thesis_Project\Thesis_Project.csproj", "{CC0D6221-3CD9-4E04-BDDE-9EF1269B50F1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Register_Web_App", "Register_Web_App\Register_Web_App.csproj", "{0167871B-54D1-4AC4-834B-4C022051E90C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC0D6221-3CD9-4E04-BDDE-9EF1269B50F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC0D6221-3CD9-4E04-BDDE-9EF1269B50F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC0D6221-3CD9-4E04-BDDE-9EF1269B50F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC0D6221-3CD9-4E04-BDDE-9EF1269B50F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0167871B-54D1-4AC4-834B-4C022051E90C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0167871B-54D1-4AC4-834B-4C022051E90C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0167871B-54D1-4AC4-834B-4C022051E90C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0167871B-54D1-4AC4-834B-4C022051E90C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
