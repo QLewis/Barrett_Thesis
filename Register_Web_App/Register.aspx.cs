@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Register_Web_App
 {
-    public partial class Register : System.Web.UI.Page
+    public partial class About : Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

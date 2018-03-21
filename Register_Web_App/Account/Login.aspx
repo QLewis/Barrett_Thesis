@@ -9,7 +9,8 @@
         <div class="col-md-8">
             <section id="loginForm">
                 <div class="form-horizontal">
-                    <h4>Use a local account to log in.</h4>
+                    <!-- CHANGED-->
+                    <h4>Log in as staff or student.</h4>
                     <hr />
                     <asp:PlaceHolder runat="server" ID="ErrorMessage" Visible="false">
                         <p class="text-danger">
@@ -33,9 +34,10 @@
                     </div>
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <div class="checkbox">
-                                <asp:CheckBox runat="server" ID="RememberMe" />
-                                <asp:Label runat="server" AssociatedControlID="RememberMe">Remember me?</asp:Label>
+                            <!--CHANGED-->
+                            <div class="radiobutton">
+                                <asp:RadioButton ID="StaffRadio" runat="server" Text="Staff"/>
+                                <asp:RadioButton ID="StudentRadio" runat="server" Text="Student"/>
                             </div>
                         </div>
                     </div>
