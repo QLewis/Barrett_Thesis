@@ -8,20 +8,33 @@
         </p>
         
     </div>
-    <div>
-        <asp:Label ID="Label1" runat="server" Text="Log In"></asp:Label>
-        <br>
-        <asp:RadioButton ID="Students" runat="server" Text="Student"/>
-        <asp:RadioButton ID="Staff" runat="server" Text="Staff"/>
-        <br>
-        <asp:Label ID="Label2" runat="server" Text="Username:"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-
-        <br>
-        <asp:Label ID="Label3" runat="server" Text="Password:"></asp:Label>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <div class="form-group">
+         <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
+         <div class="col-md-10">
+              <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
+              <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ErrorMessage="The email field is required." />
+         </div>
+    </div>
+    <div class="form-group">
+          <asp:Label runat="server" AssociatedControlID="Password" CssClass="col-md-2 control-label">Password</asp:Label>
+          <div class="col-md-10">
+               <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                <asp:RequiredFieldValidator runat="server" ControlToValidate="Password" CssClass="text-danger" ErrorMessage="The password field is required." />
+          </div>
+    </div>
+    <div class="form-group">
+         <div class="col-md-offset-2 col-md-10">
+               <!--CHANGED-->
+               <div class="radiobutton">
+                    <asp:RadioButton ID="StaffRadio" runat="server" Text="Staff"/>
+                    <asp:RadioButton ID="StudentRadio" runat="server" Text="Student"/>
+               </div>
+         </div>
+    </div>
+    <div class="form-group">
+         <div class="col-md-offset-2 col-md-10">
+              <asp:Button runat="server" Text="Log in" CssClass="btn btn-default" />
+         </div>
     </div>
 
    

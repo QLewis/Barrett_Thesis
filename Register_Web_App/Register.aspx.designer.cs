@@ -31,13 +31,13 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.Label TimeLabel;
         
         /// <summary>
-        /// ListView1 control.
+        /// searchResults control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
+        protected global::System.Web.UI.WebControls.ListView searchResults;
         
         /// <summary>
         /// TextBox1 control.
