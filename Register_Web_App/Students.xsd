@@ -1,0 +1,51 @@
+<!--XSD file defines the XML schema-->
+<!--Go through TODOs-->
+<!--Solid arrows = parent-child relationships-->
+<!--Dotted arrows = element-content relationships-->
+<!--Optional attribute = XML instance can have 0+-->
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xsd:element name="Students">
+		<xsd:complexType>
+			<!--There can be more than one Student, hence 'sequence-->
+			<xsd:sequence maxOccurs="unbounded">
+				<!--Student is an element of Students-->
+				<xsd:element name="Student" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<!--First element: Name-->
+							<xsd:element name="Name" use="required">
+								<xsd:complexType>
+									<xsd:sequence>
+										<!--First element: First-->
+										<xsd:element name="First" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+										<!--Second element: Last-->
+										<xsd:element name="Last" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<!--Second element: ID-->
+							<!--TODO: See if you can control number of digits-->
+							<xsd:simpleType name="ID" minOccurs="1" maxOccurs="1">
+								<xsd:restriction base="xsd:integer">
+									<xsd:pattern value="\d{6}"/>
+								</xsd:restriction>
+							</xsd:simpleType>
+							<!--Third element: Meals-->
+							<xsd:element name="Meals" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+							<!--Fourth element: M&G-->
+							<xsd:element name="MGDollars" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+							<!--Fifth element: Guest passes-->
+							<xsd:element name="GuestPasses" type="xsd:integer" minOccurs="1" maxOccurs="1"/>
+						</xsd:sequence>
+						<!--Barrent is an attribute of Student-->
+						<!--TODO: Might change whether or not required-->
+						<xsd:attribute name="Barrett" type="xsd:string" use="required"/>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>

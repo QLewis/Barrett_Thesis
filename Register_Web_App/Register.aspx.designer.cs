@@ -22,6 +22,15 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.Label MealLabel;
         
         /// <summary>
+        /// barretLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label barretLabel;
+        
+        /// <summary>
         /// TimeLabel control.
         /// </summary>
         /// <remarks>
@@ -31,6 +40,15 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.Label TimeLabel;
         
         /// <summary>
+        /// Students control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.XmlDataSource Students;
+        
+        /// <summary>
         /// searchResults control.
         /// </summary>
         /// <remarks>
@@ -38,6 +56,15 @@ namespace Register_Web_App {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView searchResults;
+        
+        /// <summary>
+        /// Students control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.XmlDataSource Students;
         
         /// <summary>
         /// TextBox1 control.

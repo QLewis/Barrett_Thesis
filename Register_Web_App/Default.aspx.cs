@@ -11,7 +11,6 @@ namespace Register_Web_App
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
