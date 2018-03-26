@@ -23,23 +23,55 @@ namespace Register_Web_App
             doc.Load(reader);*/
         }
 
-        /*protected void enterButton_Click(object sender, EventArgs e)
+        protected void enterButton_Click(object sender, EventArgs e)
         {
-            
-        }*/
+            if ((searchInput.Text != null) && (searchInput.Text.Length == 6))
+            {
+                errorLabel.Text = "Correct Input";
+                //timeStamp();
+            }
+            else
+            {
+                //Display error message
+                errorLabel.Text = "ERROR -- Invalid input";
 
-        /*private void enterButton_Click(object sender, EventArgs e)
+                //Clear the input
+                searchInput.Text = string.Empty;
+
+                //Bring focus back to the textbox
+                searchInput.Focus();
+            }
+        }
+
+        //Uses time of day to determine the meal
+        private void timeStamp()
         {
-            searchResults.Items.Clear();
-            barretLabel.Text = string.Empty;
-            Boolean found = false;
-            string idNumber;
-            string isBarrett;
-            DateTime currentTime;
+            TimeSpan breakfast = new TimeSpan(7, 30, 0); //7:30 am
+            TimeSpan lunch = new TimeSpan(10, 30, 0); //10:30 am
+            TimeSpan dinner = new TimeSpan(16, 0, 0); //4:00 pm
 
-            //String we're searching for is not empty, and equal to 6 digits
-            if ((searc))
-        }*/
+            DateTime currentTime = DateTime.Now;
+
+            timeLabel.Text = currentTime.ToString("h:mm:ss tt");
+
+            if ((currentTime.TimeOfDay >= breakfast) && (currentTime.TimeOfDay < lunch))
+            {
+                mealLabel.Text = "Breakfast";
+            }
+            else if ((currentTime.TimeOfDay >= lunch) && (currentTime.TimeOfDay < dinner))
+            {
+                mealLabel.Text = "Lunch";
+
+            }
+            else if (currentTime.TimeOfDay >= dinner)
+            {
+                mealLabel.Text = "Dinner";
+            }
+        }
+
+
+
+
         //TODO: Try to implement binarySearch algorithm
 
 

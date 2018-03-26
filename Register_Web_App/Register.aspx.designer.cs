@@ -13,31 +13,31 @@ namespace Register_Web_App {
     public partial class About {
         
         /// <summary>
-        /// MealLabel control.
+        /// mealLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MealLabel;
+        protected global::System.Web.UI.WebControls.Label mealLabel;
         
         /// <summary>
-        /// barretLabel control.
+        /// barrettLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label barretLabel;
+        protected global::System.Web.UI.WebControls.Label barrettLabel;
         
         /// <summary>
-        /// TimeLabel control.
+        /// timeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label TimeLabel;
+        protected global::System.Web.UI.WebControls.Label timeLabel;
         
         /// <summary>
         /// searchResults control.
@@ -58,13 +58,13 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.XmlDataSource StudentsXML;
         
         /// <summary>
-        /// TextBox1 control.
+        /// searchInput control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
+        protected global::System.Web.UI.WebControls.TextBox searchInput;
         
         /// <summary>
         /// errorLabel control.
