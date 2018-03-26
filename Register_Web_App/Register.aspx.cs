@@ -23,6 +23,11 @@ namespace Register_Web_App
             doc.Load(reader);*/
         }
 
+        /*protected void enterButton_Click(object sender, EventArgs e)
+        {
+            
+        }*/
+
         /*private void enterButton_Click(object sender, EventArgs e)
         {
             searchResults.Items.Clear();
@@ -37,6 +42,6 @@ namespace Register_Web_App
         }*/
         //TODO: Try to implement binarySearch algorithm
 
-    
+
     }
 }

@@ -40,15 +40,6 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.Label TimeLabel;
         
         /// <summary>
-        /// Students control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.XmlDataSource Students;
-        
-        /// <summary>
         /// searchResults control.
         /// </summary>
         /// <remarks>
@@ -58,13 +49,13 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.ListView searchResults;
         
         /// <summary>
-        /// Students control.
+        /// StudentsXML control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.XmlDataSource Students;
+        protected global::System.Web.UI.WebControls.XmlDataSource StudentsXML;
         
         /// <summary>
         /// TextBox1 control.
@@ -76,13 +67,22 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.TextBox TextBox1;
         
         /// <summary>
-        /// Label1 control.
+        /// errorLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.Label errorLabel;
+        
+        /// <summary>
+        /// guestLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label guestLabel;
         
         /// <summary>
         /// Button1 control.
