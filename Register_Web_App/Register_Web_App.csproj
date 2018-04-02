@@ -154,6 +154,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\Employee.xml" />
+    <Content Include="App_Data\Students.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Register.aspx" />
     <Content Include="Account\AddPhoneNumber.aspx" />
     <Content Include="Account\Confirm.aspx" />
@@ -170,7 +174,7 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
-    <Content Include="Contact.aspx" />
+    <Content Include="studentInfo.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -213,8 +217,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
-    <Content Include="Students.xml" />
-    <Content Include="Students.xsl" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -222,9 +224,6 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Site.Mobile.Master" />
-    <None Include="Students.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -349,12 +348,12 @@
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
-    <Compile Include="Contact.aspx.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="studentInfo.aspx.cs">
+      <DependentUpon>studentInfo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Contact.aspx.designer.cs">
-      <DependentUpon>Contact.aspx</DependentUpon>
+    <Compile Include="studentInfo.aspx.designer.cs">
+      <DependentUpon>studentInfo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -391,9 +390,7 @@
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

@@ -58,22 +58,22 @@ namespace Register_Web_App.Account {
         protected global::System.Web.UI.WebControls.CheckBox RememberMe;
         
         /// <summary>
-        /// StaffRadio control.
+        /// staffRadio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton StaffRadio;
+        protected global::System.Web.UI.WebControls.RadioButton staffRadio;
         
         /// <summary>
-        /// StudentRadio control.
+        /// studentRadio control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton StudentRadio;
+        protected global::System.Web.UI.WebControls.RadioButton studentRadio;
         
         /// <summary>
         /// RegisterHyperLink control.

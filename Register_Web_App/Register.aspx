@@ -14,7 +14,7 @@
         
         <br>
         <!--ListView-->
-        <asp:ListView ID="searchResults" DataSourceID="StudentsXML" runat="server">
+        <asp:ListView ID="searchResults" DataSourceID="studentsXML" runat="server" Visible="false">
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
                 </LayoutTemplate>
@@ -24,12 +24,13 @@
                     <p>ID: <%#XPath("ID") %></p>
                     <p>Remaining Meals: <%#XPath("Meals") %></p>
                     <p>Remaining M&G: <%#XPath("MGDollars") %></p>
-                    <p>Remaining Guest Passes: <%#XPath("GuestPasses") %></p>-->
+                    <p>Remaining Guest Passes: <%#XPath("GuestPasses") %></p>--->
+                    
                 </ItemTemplate>
         </asp:ListView>
 
 
-        <asp:XmlDataSource ID="StudentsXML" DataFile="Students.xml" XPath="Students/Student" runat="server"></asp:XmlDataSource>
+        <asp:XmlDataSource ID="studentsXML" DataFile="Students.xml" XPath="Students/Student" runat="server"></asp:XmlDataSource>
         <br>
 
         <!--Searchbox below listview-->

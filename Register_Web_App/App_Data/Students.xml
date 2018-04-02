@@ -9,11 +9,11 @@
 			<Last>Hart</Last>
 		</Name>
 		<ID>123456</ID>
-    <!-- Started as 12-->
+		<!--Started at 12-->
 		<Meals>12</Meals>
-    <!-- Started as 100-->
+		<!-- Started at 100 -->
 		<MGDollars>100</MGDollars>
-    <!-- Started as 45-->
+		<!-- Started at 45-->
 		<GuestPasses>45</GuestPasses>
 	</Student>
 

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="Students.xsl"?>
+<!--XML file creates an instance of the schema-->
+<Employees>
+	<!--Employee 1-->
+	<Employee Cashier="Yes">
+		<Name>
+			<First>Patti</First>
+			<Last>LaVelle</Last>
+		</Name>
+		<ID>12345678</ID>
+	</Employee>
+
+	<!--Employee 2-->
+	<Employee Cashier="Yes">
+		<Name>
+			<First>Vicke</First>
+			<Last>Davis</Last>
+		</Name>
+		<ID>87654321</ID>
+	</Employee>
+
+	<!--Employee 3-->
+	<Employee>
+		<Name>
+			<First>Yumi</First>
+			<Last>Gonzales</Last>
+		</Name>
+		<ID>19283746</ID>
+	</Employee>
+</Employees>

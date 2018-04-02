@@ -9,10 +9,10 @@
         
     </div>
     <div class="form-group">
-         <asp:Label runat="server" AssociatedControlID="Email" CssClass="col-md-2 control-label">Email</asp:Label>
+         <asp:Label runat="server" CssClass="col-md-2 control-label">Username</asp:Label>
          <div class="col-md-10">
-              <asp:TextBox runat="server" ID="Email" CssClass="form-control" TextMode="Email" />
-              <asp:RequiredFieldValidator runat="server" ControlToValidate="Email" CssClass="text-danger" ErrorMessage="The email field is required." />
+              <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
+              <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="text-danger" ErrorMessage="The username field is required." />
          </div>
     </div>
     <div class="form-group">
@@ -26,14 +26,16 @@
          <div class="col-md-offset-2 col-md-10">
                <!--CHANGED-->
                <div class="radiobutton">
-                    <asp:RadioButton ID="StaffRadio" runat="server" Text="Staff"/>
-                    <asp:RadioButton ID="StudentRadio" runat="server" Text="Student"/>
+                    <asp:RadioButtonList ID="staffOrStudentList" runat="server">
+                        <asp:ListItem>Staff</asp:ListItem>
+                        <asp:ListItem>Student</asp:ListItem>
+                    </asp:RadioButtonList>
                </div>
          </div>
     </div>
     <div class="form-group">
          <div class="col-md-offset-2 col-md-10">
-              <asp:Button runat="server" Text="Log in" CssClass="btn btn-default" />
+              <asp:Button ID="logInButton" runat="server" Text="Log in" CssClass="btn btn-default" OnClick="logInButton_Click" />
          </div>
     </div>
 

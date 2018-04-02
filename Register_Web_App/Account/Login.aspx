@@ -38,8 +38,8 @@
                         <div class="col-md-offset-2 col-md-10">
                             <!--CHANGED-->
                             <div class="radiobutton">
-                                <asp:RadioButton ID="StaffRadio" runat="server" Text="Staff"/>
-                                <asp:RadioButton ID="StudentRadio" runat="server" Text="Student"/>
+                                <asp:RadioButton ID="staffRadio" runat="server" Text="Staff"/>
+                                <asp:RadioButton ID="studentRadio" runat="server" Text="Student"/>
                             </div>
                         </div>
                     </div>

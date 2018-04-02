@@ -5,30 +5,42 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using System.IO;
 
 namespace Register_Web_App
 {
     public partial class About : Page
     {
+
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Load up that XML document when the page loads
             //Upon loading the page, load in the XML document and set it to ignore comments
-            /*XmlReaderSettings settings = new XmlReaderSettings();
-            settings.IgnoreComments = true;
-
-            XmlReader reader = XmlReader.Create("Students.xml", settings);
-
-            XmlDocument doc = new XmlDocument();
-
-            doc.Load(reader);*/
-        }
+            /*FileStream fS = null;
+            string fLocation = Path.Combine(Request.PhysicalApplicationPath, @"App_Data\Book.xml");
+            try
+            {
+                if (File.Exists(fLocation))
+                {
+                    fS = new FileStream(fLocation, FileMode.Open, FileAccess.Read);
+                    XmlDocument xd = new XmlDocument();
+                    xd.Load(fS);
+                    fS.Close();
+                }
+            }
+            finally
+            {
+                fS.Close();
+            }*/
+          }
 
         protected void enterButton_Click(object sender, EventArgs e)
         {
             if ((searchInput.Text != null) && (searchInput.Text.Length == 6))
             {
                 errorLabel.Text = "Correct Input";
-                //timeStamp();
+                timeStamp();
+                searchXML(searchInput.Text);
             }
             else
             {
@@ -49,11 +61,12 @@ namespace Register_Web_App
             TimeSpan breakfast = new TimeSpan(7, 30, 0); //7:30 am
             TimeSpan lunch = new TimeSpan(10, 30, 0); //10:30 am
             TimeSpan dinner = new TimeSpan(16, 0, 0); //4:00 pm
+            TimeSpan close = new TimeSpan(20, 0, 0); //8:00 pm
 
             DateTime currentTime = DateTime.Now;
 
             timeLabel.Text = currentTime.ToString("h:mm:ss tt");
-
+            
             if ((currentTime.TimeOfDay >= breakfast) && (currentTime.TimeOfDay < lunch))
             {
                 mealLabel.Text = "Breakfast";
@@ -63,16 +76,61 @@ namespace Register_Web_App
                 mealLabel.Text = "Lunch";
 
             }
-            else if (currentTime.TimeOfDay >= dinner)
+            else if ((currentTime.TimeOfDay >= dinner) && (currentTime.TimeOfDay < close))
             {
                 mealLabel.Text = "Dinner";
+            }
+            else
+            {
+                mealLabel.Text = "Closed";
             }
         }
 
 
-
-
         //TODO: Try to implement binarySearch algorithm
+        protected void searchXML(string inputText)
+        {
+            string idNumber;
+            string isBarrett;
+            string firstname;
+            string lastname;
+            Boolean found = false;
+
+            foreach (XmlNode node in studentsXML.GetXmlDocument().DocumentElement)
+            {
+                //Get the id number of the student
+                idNumber = node.ChildNodes[1].InnerText;
+
+                //check if id number is what we're searching for
+                if (idNumber == inputText)
+                {
+                    found = true;
+                    firstname = node.ChildNodes[0].ChildNodes[0].InnerText;
+                    lastname = node.ChildNodes[0].ChildNodes[1].InnerText;
+
+                    isBarrett = node.Attributes[0].InnerText;
+
+                    if (isBarrett == "No")
+                    {
+                        barrettLabel.Text = "Not a Barrett Student -- charge extra";
+                    }
+                    searchResults.Visible.Equals(true);
+                }
+            }
+
+            if (found == false)
+            {
+                //Display error message
+                errorLabel.Text = "ERROR -- ID number not found";
+
+                //Clear the input
+                searchInput.Text = string.Empty;
+
+                //Bring focus back to the text box
+                searchInput.Focus();
+            }
+        }
+
 
 
     }
