@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
+using System.Xml.XPath;
 
 namespace Register_Web_App
 {
@@ -40,17 +41,17 @@ namespace Register_Web_App
             else if (staffOrStudentList.SelectedItem.ToString() == "Student")
             {
                 //Check that ID is in Student.xml
-                string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
+                /*string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
                 XmlTextReader reader = null;
                 try
                 {
                     reader = new XmlTextReader(fileLocation);
                     reader.WhitespaceHandling = WhitespaceHandling.None;
 
-                    while(reader.Read())
-                    {
-                        string idNumber = "Aasdf"; // Don't leave that
-                    }
+                    reader.ReadStartElement("Students");
+                    reader.Read();
+                    //testLabel.Text = reader.LocalName; //Student
+                    testLabel.Text = reader.ReadElementString("ID");
                 }
                 catch(Exception error)
                 {
@@ -60,8 +61,25 @@ namespace Register_Web_App
                 {
                     if (reader != null)
                         reader.Close();
-                }
+                }*/
                 //Response.Redirect("studentInfo.aspx");
+                string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
+                XPathDocument dx = new XPathDocument(fileLocation);
+                XPathNavigator nav = dx.CreateNavigator();
+                XPathNodeIterator iterator = nav.Select("/Students/Student");
+                iterator.MoveNext(); //Gets student Node
+                XPathNodeIterator it = iterator.Current.Select("ID"); //iterator within an iterator
+                it.MoveNext(); //gets ID
+                testLabel.Text = it.Current.Value;
+                string idNumber = it.Current.Value;
+
+                if (UserName.Text == idNumber)
+                {
+                    Response.Redirect("studentInfo.aspx");
+                }
+
+
+                
             }
         }
     }

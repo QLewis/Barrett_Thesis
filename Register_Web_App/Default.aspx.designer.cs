@@ -40,6 +40,15 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.RadioButtonList staffOrStudentList;
         
         /// <summary>
+        /// testLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label testLabel;
+        
+        /// <summary>
         /// logInButton control.
         /// </summary>
         /// <remarks>

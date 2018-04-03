@@ -24,12 +24,12 @@
     </div>
     <div class="form-group">
          <div class="col-md-offset-2 col-md-10">
-               <!--CHANGED-->
                <div class="radiobutton">
                     <asp:RadioButtonList ID="staffOrStudentList" runat="server">
                         <asp:ListItem>Staff</asp:ListItem>
                         <asp:ListItem>Student</asp:ListItem>
                     </asp:RadioButtonList>
+                   <asp:Label runat="server" ID="testLabel">Test XML</asp:Label>
                </div>
          </div>
     </div>
