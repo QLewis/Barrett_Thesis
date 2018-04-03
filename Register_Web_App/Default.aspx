@@ -29,7 +29,7 @@
                         <asp:ListItem>Staff</asp:ListItem>
                         <asp:ListItem>Student</asp:ListItem>
                     </asp:RadioButtonList>
-                   <asp:Label runat="server" ID="testLabel">Test XML</asp:Label>
+                   <asp:Label ID="testLabel" runat="server">Test XML</asp:Label>
                </div>
          </div>
     </div>

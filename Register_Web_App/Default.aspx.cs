@@ -33,24 +33,28 @@ namespace Register_Web_App
 
         protected void logInButton_Click(object sender, EventArgs e)
         {
+            Boolean found = false;
+            string idNumber;
+
             if (staffOrStudentList.SelectedItem.ToString() == "Staff")
             {
-                //Check that ID is in Employee.xml
-                //Response.Redirect("Register.aspx");
-
                 string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Employees.xml");
                 XPathDocument dx = new XPathDocument(fileLocation);
                 XPathNavigator nav = dx.CreateNavigator();
                 XPathNodeIterator iterator = nav.Select("/Employees/Employee");
-                iterator.MoveNext(); //Gets student Node
-                XPathNodeIterator it = iterator.Current.Select("ID"); //iterator within an iterator
-                it.MoveNext(); //gets ID
-                testLabel.Text = it.Current.Value;
-                string idNumber = it.Current.Value;
 
-                if (UserName.Text == idNumber)
+                while (found == false)
                 {
-                    Response.Redirect("Register.aspx");
+                    iterator.MoveNext();
+                    XPathNodeIterator it = iterator.Current.Select("ID");
+                    it.MoveNext();
+                    idNumber = it.Current.Value;
+
+                    if (UserName.Text == idNumber)
+                    {
+                        found = true;
+                        Response.Redirect("studentInfo.aspx");
+                    }
                 }
             }
             else if (staffOrStudentList.SelectedItem.ToString() == "Student")
@@ -59,17 +63,34 @@ namespace Register_Web_App
                 XPathDocument dx = new XPathDocument(fileLocation);
                 XPathNavigator nav = dx.CreateNavigator();
                 XPathNodeIterator iterator = nav.Select("/Students/Student");
+                /*
                 iterator.MoveNext(); //Gets student Node
                 XPathNodeIterator it = iterator.Current.Select("ID"); //iterator within an iterator
                 it.MoveNext(); //gets ID
-                testLabel.Text = it.Current.Value;
                 string idNumber = it.Current.Value;
 
                 if (UserName.Text == idNumber)
                 {
                     Response.Redirect("studentInfo.aspx");
                 }
+                */
+                while(found == false)
+                {
+                    iterator.MoveNext();
+                    XPathNodeIterator it = iterator.Current.Select("ID");
+                    it.MoveNext();
+                    idNumber = it.Current.Value;
 
+                    if (UserName.Text == idNumber)
+                    {
+                        found = true;
+                        Response.Redirect("studentInfo.aspx");
+                    }
+                }
+                if (found == false)
+                {
+                    testLabel.Text = "ID Not Found";
+                }
 
                 
             }
