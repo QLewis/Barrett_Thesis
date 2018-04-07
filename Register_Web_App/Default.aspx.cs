@@ -14,36 +14,37 @@ namespace Register_Web_App
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
-            XmlTextReader reader = null;
-            try
-            {
-                reader = new XmlTextReader(fileLocation);
-                reader.WhitespaceHandling = WhitespaceHandling.None;
-            }
-            finally
-            {
-                if (reader != null)
-                    reader.Close();
-            }*/
-
-            Console.WriteLine("The page_load function in default.aspx.cs");
 
         }
 
         protected void logInButton_Click(object sender, EventArgs e)
         {
             Boolean found = false;
+            Boolean error = false;
             string idNumber;
+            int count = 0;
 
-            if (staffOrStudentList.SelectedItem.ToString() == "Staff")
+            if (staffOrStudentList.SelectedItem == null)
             {
+                testLabel.Text = "ERROR -- Pick Staff or Student";
+            }
+            else if (staffOrStudentList.SelectedItem.ToString() == "Staff")
+            {
+                //Make sure input is correct length before opening the document
+                if (UserName.Text.Length != 8)
+                {
+                    testLabel.Text = "ERROR -- Invalid input";
+                    error = true;
+                }
+
                 string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Employees.xml");
                 XPathDocument dx = new XPathDocument(fileLocation);
                 XPathNavigator nav = dx.CreateNavigator();
                 XPathNodeIterator iterator = nav.Select("/Employees/Employee");
 
-                while (found == false)
+                int nodeCount = iterator.Count; //Gets the number of nodes in the set
+
+                while ((found == false) && (error == false) && (count <= nodeCount))
                 {
                     iterator.MoveNext();
                     XPathNodeIterator it = iterator.Current.Select("ID");
@@ -55,48 +56,51 @@ namespace Register_Web_App
                         found = true;
                         Response.Redirect("Register.aspx");
                     }
+
+                    count++;
+                }
+                //Get through searching and the id is not found
+                if ((found == false) && (error == false))
+                {
+                    testLabel.Text = "ID not found";
                 }
             }
             else if (staffOrStudentList.SelectedItem.ToString() == "Student")
             {
+                //Make sure input is correct length before opening the document
+                if (UserName.Text.Length != 6)
+                {
+                    testLabel.Text = "ERROR -- Invalid input";
+                    error = true;
+                }
+
                 string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
                 XPathDocument dx = new XPathDocument(fileLocation);
                 XPathNavigator nav = dx.CreateNavigator();
-                XPathNodeIterator iterator = nav.Select("/Students/Student");
-                /*
-                iterator.MoveNext(); //Gets student Node
-                XPathNodeIterator it = iterator.Current.Select("ID"); //iterator within an iterator
-                it.MoveNext(); //gets ID
-                string idNumber = it.Current.Value;
+                XPathNodeIterator iterator = nav.Select("/Students/Student"); //selects all Student elements that are children of students
+                //iterator.MoveNext();
 
-                if (UserName.Text == idNumber)
-                {
-                    Response.Redirect("studentInfo.aspx");
-                }
-                */
-                while(found == false)
+                int nodeCount = iterator.Count; //Gets the number of nodes in the set
+
+                while((found == false) && (error == false) && (count <= nodeCount))
                 {
                     iterator.MoveNext();
                     XPathNodeIterator it = iterator.Current.Select("ID");
                     it.MoveNext();
                     idNumber = it.Current.Value;
-
                     if (UserName.Text == idNumber)
                     {
                         found = true;
                         Response.Redirect("studentInfo.aspx");
                     }
+                    count++;
                 }
-                if (found == false)
+                if ((found == false) && (error == false))
                 {
                     testLabel.Text = "ID Not Found";
                 }
 
                 
-            }
-            else if (staffOrStudentList.SelectedItem.Equals(null))
-            {
-                testLabel.Text = "Must select radio button";
             }
         }
     }

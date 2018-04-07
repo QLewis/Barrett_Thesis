@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Xml;
 using System.IO;
+using System.Xml.XPath;
 
 namespace Register_Web_App
 {
@@ -36,6 +37,7 @@ namespace Register_Web_App
 
         protected void enterButton_Click(object sender, EventArgs e)
         {
+            
             if ((searchInput.Text != null) && (searchInput.Text.Length == 6))
             {
                 errorLabel.Text = "Correct Input";
@@ -95,29 +97,27 @@ namespace Register_Web_App
             string firstname;
             string lastname;
             Boolean found = false;
+            int count = 0;
 
-            foreach (XmlNode node in studentsXML.GetXmlDocument().DocumentElement)
+            string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
+            XPathDocument dx = new XPathDocument(fileLocation);
+            XPathNavigator nav = dx.CreateNavigator();
+            XPathNodeIterator iterator = nav.Select("/Students/Student"); //selects all Student elements that are children of students
+
+            int nodeCount = iterator.Count; //Gets the number of nodes in the set
+
+            while ((found == false) && (count <= nodeCount))
             {
-                //Get the id number of the student
-                idNumber = node.ChildNodes[1].InnerText;
+                iterator.MoveNext();
+                XPathNodeIterator it = iterator.Current.Select("ID");
+                it.MoveNext();
+                idNumber = it.Current.Value;
 
-                //check if id number is what we're searching for
-                if (idNumber == inputText)
+                if (inputText == idNumber)
                 {
                     found = true;
-                    firstname = node.ChildNodes[0].ChildNodes[0].InnerText;
-                    lastname = node.ChildNodes[0].ChildNodes[1].InnerText;
-
-                    isBarrett = node.Attributes[0].InnerText;
-
-                    if (isBarrett == "No")
-                    {
-                        barrettLabel.Text = "Not a Barrett Student -- charge extra";
-                    }
-                    searchResults.Visible.Equals(true);
                 }
             }
-
             if (found == false)
             {
                 //Display error message
