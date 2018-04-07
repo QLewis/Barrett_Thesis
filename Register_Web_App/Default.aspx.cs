@@ -53,7 +53,7 @@ namespace Register_Web_App
                     if (UserName.Text == idNumber)
                     {
                         found = true;
-                        Response.Redirect("studentInfo.aspx");
+                        Response.Redirect("Register.aspx");
                     }
                 }
             }
@@ -93,6 +93,10 @@ namespace Register_Web_App
                 }
 
                 
+            }
+            else if (staffOrStudentList.SelectedItem.Equals(null))
+            {
+                testLabel.Text = "Must select radio button";
             }
         }
     }
