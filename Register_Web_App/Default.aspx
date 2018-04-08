@@ -30,6 +30,7 @@
                         <asp:ListItem>Student</asp:ListItem>
                     </asp:RadioButtonList>
                    <asp:Label ID="testLabel" runat="server" Forecolor="Red"></asp:Label>
+                   <asp:Label ID="whiteLabel" runat="server" ForeColor="White"></asp:Label>
                </div>
          </div>
     </div>

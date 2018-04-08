@@ -12,11 +12,18 @@ namespace Register_Web_App
 {
     public partial class _Default : Page
     {
+        public string firstName;
+        public string lastName;
+        public string globalID;
+        public string mealsLeft;
+        public string mgDollars;
+        public string guestPasses;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
         }
-
+        //TODO: make a searchStudent() and a searchStaff() method
         protected void logInButton_Click(object sender, EventArgs e)
         {
             Boolean found = false;
@@ -91,7 +98,33 @@ namespace Register_Web_App
                     if (UserName.Text == idNumber)
                     {
                         found = true;
-                        Response.Redirect("studentInfo.aspx");
+
+                        it = iterator.Current.Select("Name/First");
+                        it.MoveNext();
+                        firstName = it.Current.Value;
+
+                        it = iterator.Current.Select("Name/Last");
+                        it.MoveNext();
+                        lastName = it.Current.Value;
+
+                        globalID = idNumber;
+
+                        it = iterator.Current.Select("Meals");
+                        it.MoveNext();
+                        mealsLeft = it.Current.Value;
+
+                        it = iterator.Current.Select("MGDollars");
+                        it.MoveNext();
+                        mgDollars = it.Current.Value;
+
+                        it = iterator.Current.Select("GuestPasses");
+                        it.MoveNext();
+                        guestPasses = it.Current.Value;
+
+                        //testLabel.Text = studentInfo();
+
+                        //Response.Redirect("studentInfo.aspx");
+                        Server.Transfer("studentInfo.aspx");
                     }
                     count++;
                 }
@@ -103,6 +136,18 @@ namespace Register_Web_App
                 
             }
         }
+
+        //Public method to be accessed by targetPage
+        public string studentInfo()
+        {
+            string info = firstName + " " + lastName + "\n " 
+                          + globalID + "\n " 
+                          + mealsLeft + "\n " 
+                          + mgDollars + " \n" 
+                          + guestPasses;
+            return info;
+        }
+
     }
 
     
