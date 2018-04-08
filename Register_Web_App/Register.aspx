@@ -6,39 +6,30 @@
 
     <div style="border:3px; border-style:solid">
         <!-- Labels above listview-->
-        <asp:Label ID="mealLabel" runat="server" Text="Meal"></asp:Label>
+        <asp:Label ID="mealTimeLabel" runat="server" Text="Meal" style="padding-left:5px"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="barrettLabel" runat="server" Text="Barrett Label"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <asp:Label ID="timeLabel" runat="server" Text="TimeStamp"></asp:Label>
         
         <br>
-        <!--ListView-->
-        <asp:ListView ID="searchResults" DataSourceID="studentsXML" runat="server" Visible="false">
-                <LayoutTemplate>
-                    <asp:PlaceHolder ID="itemPlaceholder" runat="server"></asp:PlaceHolder>
-                </LayoutTemplate>
 
-                <ItemTemplate>
-                    <!--<p>Name: <%#XPath("Name/First") %> <%#XPath("Name/Last") %></p>
-                    <p>ID: <%#XPath("ID") %></p>
-                    <p>Remaining Meals: <%#XPath("Meals") %></p>
-                    <p>Remaining M&G: <%#XPath("MGDollars") %></p>
-                    <p>Remaining Guest Passes: <%#XPath("GuestPasses") %></p>--->
-                    
-                </ItemTemplate>
-        </asp:ListView>
-
-
-        <asp:XmlDataSource ID="studentsXML" DataFile="Students.xml" XPath="Students/Student" runat="server"></asp:XmlDataSource>
-        <br>
-
-        <!--Searchbox below listview-->
+        <asp:Label ID="nameLabel" runat="server" Text="First and Last Name" style="padding-left:5px"></asp:Label>
+        <br />
+        
+        <asp:Label ID="idLabel" runat="server" Text="ID Number" style="padding-left:5px"></asp:Label>
+        <br />
+        <asp:Label ID="mealsLabel" runat="server" Text="Meals" style="padding-left:5px"></asp:Label>
+        <br />
+        <asp:Label ID="mgLabel" runat="server" Text="M&amp;G" style="padding-left:5px"></asp:Label>
+        <br />
+        <asp:Label ID="guestPassLabel" runat="server" Text="Guest Passes" style="padding-left:5px"></asp:Label>
       </div>
     <div>
         <br />
+        <!--Searchbox below listview-->
         Student:
-        <asp:TextBox ID="searchInput" runat="server">&nbsp;</asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="errorLabel" runat="server" Text=""></asp:Label>
+        <asp:TextBox ID="searchInput" runat="server">&nbsp;</asp:TextBox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <asp:Label ID="errorLabel" runat="server" Text="" ForeColor="Red"></asp:Label>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<asp:Label ID="guestLabel" runat="server" Text="">Guest Passes</asp:Label>
 
         <!--Number pad-->

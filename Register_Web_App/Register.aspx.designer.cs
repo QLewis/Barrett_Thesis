@@ -13,13 +13,13 @@ namespace Register_Web_App {
     public partial class About {
         
         /// <summary>
-        /// mealLabel control.
+        /// mealTimeLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label mealLabel;
+        protected global::System.Web.UI.WebControls.Label mealTimeLabel;
         
         /// <summary>
         /// barrettLabel control.
@@ -40,22 +40,49 @@ namespace Register_Web_App {
         protected global::System.Web.UI.WebControls.Label timeLabel;
         
         /// <summary>
-        /// searchResults control.
+        /// nameLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView searchResults;
+        protected global::System.Web.UI.WebControls.Label nameLabel;
         
         /// <summary>
-        /// studentsXML control.
+        /// idLabel control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.XmlDataSource studentsXML;
+        protected global::System.Web.UI.WebControls.Label idLabel;
+        
+        /// <summary>
+        /// mealsLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mealsLabel;
+        
+        /// <summary>
+        /// mgLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label mgLabel;
+        
+        /// <summary>
+        /// guestPassLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label guestPassLabel;
         
         /// <summary>
         /// searchInput control.

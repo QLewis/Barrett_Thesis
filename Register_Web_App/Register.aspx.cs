@@ -7,41 +7,25 @@ using System.Web.UI.WebControls;
 using System.Xml;
 using System.IO;
 using System.Xml.XPath;
+using System.Xml.Linq;
 
 namespace Register_Web_App
 {
     public partial class About : Page
     {
+        string xmlPath = @"App_Data\Students.xml";
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Load up that XML document when the page loads
-            //Upon loading the page, load in the XML document and set it to ignore comments
-            /*FileStream fS = null;
-            string fLocation = Path.Combine(Request.PhysicalApplicationPath, @"App_Data\Book.xml");
-            try
-            {
-                if (File.Exists(fLocation))
-                {
-                    fS = new FileStream(fLocation, FileMode.Open, FileAccess.Read);
-                    XmlDocument xd = new XmlDocument();
-                    xd.Load(fS);
-                    fS.Close();
-                }
-            }
-            finally
-            {
-                fS.Close();
-            }*/
-          }
+            timeStamp();
+        }
 
         protected void enterButton_Click(object sender, EventArgs e)
         {
-            
+            //Make sure input exists and is equal to 6 digits
             if ((searchInput.Text != null) && (searchInput.Text.Length == 6))
             {
-                errorLabel.Text = "Correct Input";
-                timeStamp();
+                
                 searchXML(searchInput.Text);
             }
             else
@@ -71,53 +55,58 @@ namespace Register_Web_App
             
             if ((currentTime.TimeOfDay >= breakfast) && (currentTime.TimeOfDay < lunch))
             {
-                mealLabel.Text = "Breakfast";
+                mealTimeLabel.Text = "Breakfast";
             }
             else if ((currentTime.TimeOfDay >= lunch) && (currentTime.TimeOfDay < dinner))
             {
-                mealLabel.Text = "Lunch";
+                mealTimeLabel.Text = "Lunch";
 
             }
             else if ((currentTime.TimeOfDay >= dinner) && (currentTime.TimeOfDay < close))
             {
-                mealLabel.Text = "Dinner";
+                mealTimeLabel.Text = "Dinner";
             }
             else
             {
-                mealLabel.Text = "Closed";
+                mealTimeLabel.Text = "Closed";
             }
         }
 
 
-        //TODO: Try to implement binarySearch algorithm
         protected void searchXML(string inputText)
         {
-            string idNumber;
-            string isBarrett;
-            string firstname;
-            string lastname;
+            //Load in the XML File
+            var path = Server.MapPath(xmlPath);
+
+            XDocument doc = XDocument.Load(path);
+
+            //Variables for searching
             Boolean found = false;
-            int count = 0;
+     
+            /*string isBarrett;
+            string firstname;
+            string lastname;*/
 
-            string fileLocation = Path.Combine(HttpRuntime.AppDomainAppPath, @"App_Data\Students.xml");
-            XPathDocument dx = new XPathDocument(fileLocation);
-            XPathNavigator nav = dx.CreateNavigator();
-            XPathNodeIterator iterator = nav.Select("/Students/Student"); //selects all Student elements that are children of students
 
-            int nodeCount = iterator.Count; //Gets the number of nodes in the set
-
-            while ((found == false) && (count <= nodeCount))
+            foreach (XElement element in doc.Descendants("Student"))
             {
-                iterator.MoveNext();
-                XPathNodeIterator it = iterator.Current.Select("ID");
-                it.MoveNext();
-                idNumber = it.Current.Value;
-
-                if (inputText == idNumber)
+                if (element.Element("ID").Value == inputText)
                 {
+                    //Set found to true
                     found = true;
+
+                    nameLabel.Text = "Name: " + element.Element("Name").Element("First").Value + " " + element.Element("Name").Element("Last").Value;
+                    idLabel.Text = "ID: " + element.Element("ID").Value;
+                    mealsLabel.Text = "Meals left: " + element.Element("Meals").Value;
+                    mgLabel.Text = "M and G left: " + element.Element("MGDollars").Value;
+                    guestPassLabel.Text = "Guest Passes left: " + element.Element("GuestPasses").Value;
+
+                    //Clear the search box and bring focus back to it
+                    searchInput.Text = string.Empty;
+                    searchInput.Focus();
                 }
             }
+
             if (found == false)
             {
                 //Display error message
@@ -130,8 +119,5 @@ namespace Register_Web_App
                 searchInput.Focus();
             }
         }
-
-
-
     }
 }
