@@ -11,7 +11,15 @@ namespace Register_Web_App
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            infoLabel.Text = PreviousPage.studentInfo();
+            string info = PreviousPage.studentInfo();
+
+            string[] elements = info.Split('\n');
+
+            nameLabel.Text = elements[0];
+            mealsLabel.Text = elements[2];
+            mgLabel.Text = elements[3];
+            guestLabel.Text = elements[4];
+
         }
 
 

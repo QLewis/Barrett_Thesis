@@ -90,16 +90,35 @@ namespace Register_Web_App
 
             foreach (XElement element in doc.Descendants("Student"))
             {
-                if (element.Element("ID").Value == inputText)
+                if (element.Element("ID").Value == inputText) //The student has been found
                 {
                     //Set found to true
                     found = true;
+                    errorLabel.Text = string.Empty;
 
-                    nameLabel.Text = "Name: " + element.Element("Name").Element("First").Value + " " + element.Element("Name").Element("Last").Value;
-                    idLabel.Text = "ID: " + element.Element("ID").Value;
-                    mealsLabel.Text = "Meals left: " + element.Element("Meals").Value;
-                    mgLabel.Text = "M and G left: " + element.Element("MGDollars").Value;
-                    guestPassLabel.Text = "Guest Passes left: " + element.Element("GuestPasses").Value;
+                    //verify student has meals left
+                     if (hasMeals(Int32.Parse(element.Element("Meals").Value)))
+                     {
+
+                        int oldMeals = Int32.Parse(element.Element("Meals").Value);
+                        int newMeals = oldMeals - 1;
+
+                        string newMealStr = newMeals.ToString();
+
+                        element.Element("Meals").Value = newMealStr;
+
+                        doc.Save(path);
+
+                        nameLabel.Text = "Name: " + element.Element("Name").Element("First").Value + " " + element.Element("Name").Element("Last").Value;
+                        idLabel.Text = "ID: " + element.Element("ID").Value;
+                        mealsLabel.Text = element.Element("Meals").Value + " meals left";
+                        mgLabel.Text = element.Element("MGDollars").Value + " M&G remaining";
+                        guestPassLabel.Text = element.Element("GuestPasses").Value + " guest passes remaining";
+                     }
+                     else
+                     {
+                        errorLabel.Text = "ERROR -- insufficient meals";
+                     }
 
                     //Clear the search box and bring focus back to it
                     searchInput.Text = string.Empty;
@@ -111,6 +130,11 @@ namespace Register_Web_App
             {
                 //Display error message
                 errorLabel.Text = "ERROR -- ID number not found";
+                nameLabel.Text = string.Empty;
+                idLabel.Text = string.Empty;
+                mealsLabel.Text = string.Empty;
+                mgLabel.Text = string.Empty;
+                guestPassLabel.Text = string.Empty;
 
                 //Clear the input
                 searchInput.Text = string.Empty;
@@ -118,6 +142,16 @@ namespace Register_Web_App
                 //Bring focus back to the text box
                 searchInput.Focus();
             }
+        }
+
+        protected Boolean hasMeals(int mealNumber)
+        {
+            if (mealNumber == 0)
+            {
+                return false;
+            }
+
+            return true;
         }
     }
 }

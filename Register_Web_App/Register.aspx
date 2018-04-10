@@ -2,7 +2,6 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <h2><%: Title %></h2>
-    <h3>This is the cash register</h3>
 
     <div style="border:3px; border-style:solid">
         <!-- Labels above listview-->
