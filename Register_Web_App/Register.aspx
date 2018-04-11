@@ -34,7 +34,7 @@
 
         <div class="radiobutton">
              <asp:RadioButtonList ID="paymentList" runat="server">
-                 <asp:ListItem>Meal</asp:ListItem>
+                 <asp:ListItem Selected="True">Meal</asp:ListItem>
                  <asp:ListItem>Guest Pass</asp:ListItem>
                  <asp:ListItem>M&G</asp:ListItem>
                  <asp:ListItem>Cash/Credit</asp:ListItem>

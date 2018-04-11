@@ -23,21 +23,46 @@ namespace Register_Web_App
         protected void enterButton_Click(object sender, EventArgs e)
         {
             //Make sure input exists and is equal to 6 digits
-            if ((searchInput.Text != null) && (searchInput.Text.Length == 6))
+            if ((searchInput.Text == null) || (searchInput.Text.Length != 6))
             {
-                
-                searchXML(searchInput.Text);
-            }
-            else
-            {
+                //searchXML(searchInput.Text);
+
                 //Display error message
                 errorLabel.Text = "ERROR -- Invalid input";
+                nameLabel.Text = string.Empty;
+                idLabel.Text = string.Empty;
+                mealsLabel.Text = string.Empty;
+                mgLabel.Text = string.Empty;
+                guestPassLabel.Text = string.Empty;
 
                 //Clear the input
                 searchInput.Text = string.Empty;
 
                 //Bring focus back to the textbox
                 searchInput.Focus();
+            }
+            else
+            {
+                if (paymentList.SelectedItem == null) //should not happen, but just in case
+                {
+                    errorLabel.Text = "ERROR -- Pick a payment method";
+                }
+                else if (paymentList.SelectedItem.ToString() == "Meal") //should be the default selection
+                {
+                    searchXML(searchInput.Text);
+                }
+                else if (paymentList.SelectedItem.ToString() == "M&G")
+                {
+                    errorLabel.Text = "The user has chosen to pay with M&G";
+                }
+                else if (paymentList.SelectedItem.ToString() == "Guest Pass")
+                {
+                    errorLabel.Text = "The user has chosen to use a guest pass";
+                }
+                else if (paymentList.SelectedItem.ToString() == "Cash/Credit")
+                {
+                    errorLabel.Text = "The user has chosen to pay with cash or a credit card";
+                }
             }
         }
 

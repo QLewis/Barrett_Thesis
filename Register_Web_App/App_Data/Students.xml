@@ -10,7 +10,7 @@
     </Name>
     <ID>123456</ID>
     <!--Started at 12-->
-    <Meals>7</Meals>
+    <Meals>11</Meals>
     <!-- Started at 100 -->
     <MGDollars>100</MGDollars>
     <!-- Started at 45-->
@@ -23,7 +23,7 @@
       <Last>Lannister</Last>
     </Name>
     <ID>054321</ID>
-    <Meals>9</Meals>
+    <Meals>8</Meals>
     <MGDollars>76</MGDollars>
     <GuestPasses>20</GuestPasses>
   </Student>
