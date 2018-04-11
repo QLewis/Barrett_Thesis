@@ -21,7 +21,7 @@
 	</Employee>
 
 	<!--Employee 3-->
-	<Employee>
+	<Employee Cashier="No">
 		<Name>
 			<First>Yumi</First>
 			<Last>Gonzales</Last>

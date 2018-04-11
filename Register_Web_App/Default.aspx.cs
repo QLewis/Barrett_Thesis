@@ -61,7 +61,17 @@ namespace Register_Web_App
                     if (UserName.Text == idNumber)
                     {
                         found = true;
-                        Response.Redirect("Register.aspx");
+
+                        if (iterator.Current.GetAttribute("Cashier","").ToString() == "No")
+                        {
+                            error = true;
+                            testLabel.Text = "ERROR -- not a cashier";
+                        }
+                        else
+                        {
+                            Response.Redirect("Register.aspx");
+                        }
+                        
                     }
 
                     count++;

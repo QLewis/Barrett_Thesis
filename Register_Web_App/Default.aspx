@@ -4,12 +4,10 @@
 
     <div class="jumbotron">
         <h2>Dining Hall Web Application</h2>
-        <p class="lead">This is going to be a cash register for my honors thesis
-        </p>
         
     </div>
     <div class="form-group">
-         <asp:Label runat="server" CssClass="col-md-2 control-label">Username</asp:Label>
+         <asp:Label runat="server" CssClass="col-md-2 control-label"><strong>Username</strong></asp:Label>
          <div class="col-md-10">
               <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
               <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="text-danger" ErrorMessage="The username field is required." />
@@ -30,7 +28,6 @@
                         <asp:ListItem>Student</asp:ListItem>
                     </asp:RadioButtonList>
                    <asp:Label ID="testLabel" runat="server" Forecolor="Red"></asp:Label>
-                   <asp:Label ID="whiteLabel" runat="server" ForeColor="White"></asp:Label>
                </div>
          </div>
     </div>

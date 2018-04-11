@@ -94,6 +94,13 @@ namespace Register_Web_App
                 {
                     //Set found to true
                     found = true;
+
+                    //check if Barrett student or not
+                    if(element.Attribute("Barrett").Value == "No")
+                    {
+                        barrettLabel.Text = "Not a Barrett student";
+                    }
+
                     errorLabel.Text = string.Empty;
 
                     //verify student has meals left
@@ -118,7 +125,13 @@ namespace Register_Web_App
                      else
                      {
                         errorLabel.Text = "ERROR -- insufficient meals";
-                     }
+
+                        nameLabel.Text = "Name: " + element.Element("Name").Element("First").Value + " " + element.Element("Name").Element("Last").Value;
+                        idLabel.Text = "ID: " + element.Element("ID").Value;
+                        mealsLabel.Text = element.Element("Meals").Value + " meals left";
+                        mgLabel.Text = element.Element("MGDollars").Value + " M&G remaining";
+                        guestPassLabel.Text = element.Element("GuestPasses").Value + " guest passes remaining";
+                    }
 
                     //Clear the search box and bring focus back to it
                     searchInput.Text = string.Empty;
