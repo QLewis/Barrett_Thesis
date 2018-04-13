@@ -4562,6 +4562,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .navbar-inverse .navbar-collapse,
 .navbar-inverse .navbar-form {
   border-color: #101010;
+  /*background-color: #7F0019;*/
 }
 
 .navbar-inverse .navbar-nav > .open > a,

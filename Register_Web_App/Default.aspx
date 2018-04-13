@@ -24,7 +24,7 @@
          <div class="col-md-offset-2 col-md-10">
                <div class="radiobutton">
                     <asp:RadioButtonList ID="staffOrStudentList" runat="server">
-                        <asp:ListItem>Staff</asp:ListItem>
+                        <asp:ListItem>Cashier</asp:ListItem>
                         <asp:ListItem>Student</asp:ListItem>
                     </asp:RadioButtonList>
                    <asp:Label ID="testLabel" runat="server" Forecolor="Red"></asp:Label>

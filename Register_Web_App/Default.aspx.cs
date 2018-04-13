@@ -33,9 +33,9 @@ namespace Register_Web_App
 
             if (staffOrStudentList.SelectedItem == null)
             {
-                testLabel.Text = "ERROR -- Pick Staff or Student";
+                testLabel.Text = "ERROR -- Pick Cashier or Student";
             }
-            else if (staffOrStudentList.SelectedItem.ToString() == "Staff")
+            else if (staffOrStudentList.SelectedItem.ToString() == "Cashier")
             {
                 //Make sure input is correct length before opening the document
                 if (UserName.Text.Length != 8)

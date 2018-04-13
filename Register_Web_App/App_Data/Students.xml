@@ -10,9 +10,9 @@
     </Name>
     <ID>123456</ID>
     <!--Started at 12-->
-    <Meals>10</Meals>
+    <Meals>5</Meals>
     <!-- Started at 100 -->
-    <MGDollars>99</MGDollars>
+    <MGDollars>98</MGDollars>
     <!-- Started at 45-->
     <GuestPasses>44</GuestPasses>
   </Student>
