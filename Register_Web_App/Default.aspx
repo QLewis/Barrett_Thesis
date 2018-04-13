@@ -7,10 +7,10 @@
         
     </div>
     <div class="form-group">
-         <asp:Label runat="server" CssClass="col-md-2 control-label"><strong>Username</strong></asp:Label>
+         <asp:Label runat="server" CssClass="col-md-2 control-label"><strong>ID</strong></asp:Label>
          <div class="col-md-10">
               <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
-              <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="text-danger" ErrorMessage="The username field is required." />
+              <asp:RequiredFieldValidator runat="server" ControlToValidate="UserName" CssClass="text-danger" ErrorMessage="The ID field is required." />
          </div>
     </div>
     <div class="form-group">

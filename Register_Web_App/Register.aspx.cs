@@ -15,9 +15,15 @@ namespace Register_Web_App
     {
         string xmlPath = @"App_Data\Students.xml";
 
+        public string globalID;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             timeStamp();
+
+            addButton.Visible = false;
+
+            barrettLabel.Text = string.Empty;
         }
 
         protected void enterButton_Click(object sender, EventArgs e)
@@ -169,8 +175,11 @@ namespace Register_Web_App
                 mgLabel.Text = string.Empty;
                 guestPassLabel.Text = string.Empty;
 
+                globalID = searchInput.Text;
+
+                addButton.Visible = true;
                 //Clear the input
-                searchInput.Text = string.Empty;
+                //searchInput.Text = string.Empty;
 
                 //Bring focus back to the text box
                 searchInput.Focus();
@@ -247,6 +256,10 @@ namespace Register_Web_App
                 mealsLabel.Text = string.Empty;
                 mgLabel.Text = string.Empty;
                 guestPassLabel.Text = string.Empty;
+
+                globalID = searchInput.Text;
+
+                addButton.Visible = true;
 
                 //Clear the input
                 searchInput.Text = string.Empty;
@@ -327,6 +340,10 @@ namespace Register_Web_App
                 mgLabel.Text = string.Empty;
                 guestPassLabel.Text = string.Empty;
 
+                globalID = searchInput.Text;
+
+                addButton.Visible = true;
+
                 //Clear the input
                 searchInput.Text = string.Empty;
 
@@ -363,6 +380,28 @@ namespace Register_Web_App
             }
 
             return true;
+        }
+
+        protected void addButton_Click(object sender, EventArgs e)
+        {
+            //Server.Transfer("AddStudent.aspx");
+            Response.Redirect("AddStudent.aspx");
+        }
+
+        protected void removeButton_Click(object sender, EventArgs e)
+        {
+            string id = searchInput.Text;
+
+            //Load in the XML File
+            var path = Server.MapPath(xmlPath);
+
+            XDocument doc = XDocument.Load(path);
+
+            doc.Descendants("Student")
+                .Where(x => (string)x.Element("ID") == id)
+                .Remove();
+
+            doc.Save(path);
         }
     }
 }
