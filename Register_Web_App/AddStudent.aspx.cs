@@ -20,6 +20,10 @@ namespace Register_Web_App.Account
             {
                 errorLabel.Text = "ERROR -- invalid id number";
             }
+            else if (barrettButtonList.SelectedItem == null)
+            {
+                errorLabel.Text = "ERROR -- Is student in Barrett?";
+            }
             else
             {
                 if (inXML(UserName.Text))

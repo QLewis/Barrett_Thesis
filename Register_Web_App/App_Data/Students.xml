@@ -69,8 +69,8 @@
     <ID>337519</ID>
     <!--Started at 2-->
     <Meals>0</Meals>
-    <MGDollars>0</MGDollars>
-    <GuestPasses>0</GuestPasses>
+    <MGDollars>40</MGDollars>
+    <GuestPasses>30</GuestPasses>
   </Student>
   <!--Student 7-->
   <Student Barrett="No">
