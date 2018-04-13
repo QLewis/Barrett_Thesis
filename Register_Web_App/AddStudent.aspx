@@ -65,7 +65,7 @@
             <div class="col-md-offset-2 col-md-10">
                 <asp:Button runat="server" OnClick="CreateUser_Click" Text="Add Student" CssClass="btn btn-default" />
                 <asp:Label runat="server" ForeColor="Red" ID="errorLabel"></asp:Label>
-                <asp:Button ID="regButton" runat="server" OnClick="regButton_Click" Text="Back to Register" />
+                <asp:Button ID="regButton" runat="server" OnClick="regButton_Click" Text="Back to Register" CssClass="btn btn-default"/>
             </div>
         </div>
     </div>
