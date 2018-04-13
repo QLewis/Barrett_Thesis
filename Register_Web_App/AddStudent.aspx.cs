@@ -87,5 +87,10 @@ namespace Register_Web_App.Account
 
             doc.Save(path);
         }
+
+        protected void regButton_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Register.aspx");
+        }
     }
 }

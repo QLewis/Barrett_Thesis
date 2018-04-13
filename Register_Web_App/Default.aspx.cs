@@ -65,7 +65,7 @@ namespace Register_Web_App
                         if (iterator.Current.GetAttribute("Cashier","").ToString() == "No")
                         {
                             error = true;
-                            testLabel.Text = "ERROR -- not a cashier";
+                            testLabel.Text = "ERROR -- employee is not a cashier";
                         }
                         else
                         {
