@@ -402,6 +402,15 @@ namespace Register_Web_App
                 .Remove();
 
             doc.Save(path);
+
+            nameLabel.Text = string.Empty;
+            idLabel.Text = string.Empty;
+            mealsLabel.Text = string.Empty;
+            mgLabel.Text = string.Empty;
+            guestPassLabel.Text = string.Empty;
+
+
+            errorLabel.Text = "The student has been removed form the database";
         }
     }
 }
